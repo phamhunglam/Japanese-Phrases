@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent" android:layout_height="match_parent">
+<GridLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_toRightOf="@+id/button"
+    android:layout_marginLeft="5dp">
+    <TextView
+        android:id="@+id/translateText"
+        android:text="translate"
+        android:textSize="18dp"
+        android:layout_row="2"
+        android:layout_column="0"
+        android:textColor="#000000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/target2Text"/>
+    <TextView
+        android:id="@+id/target1Text"
+        android:text="target1"
+        android:textSize="25dp"
+        android:layout_row="0"
+        android:textColor="#000000"
+        android:layout_column="0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/target2Text"
+        android:text="target2"
+        android:textSize="20dp"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:layout_row="1"
+        android:layout_column="0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/target1Text"/>
+</GridLayout>
+
+<ImageButton
+    android:id="@+id/button"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="5dp"
+    android:layout_marginTop="5dp"
+    android:background="@null"
+    android:cropToPadding="false"
+    android:onClick="start"
+    android:scaleType="matrix"
+    android:src="@drawable/headphones" />
+</RelativeLayout>
