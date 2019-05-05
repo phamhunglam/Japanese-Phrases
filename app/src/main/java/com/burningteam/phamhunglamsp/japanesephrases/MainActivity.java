@@ -1,14 +1,16 @@
 package com.burningteam.phamhunglamsp.japanesephrases;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Menu;
 import android.view.MenuItem;
+import android.view.WindowManager;
 import android.widget.ListView;
 
 import java.io.InputStream;
@@ -33,13 +35,30 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<String> mp3 = new ArrayList<>();
     SQLiteDatabase myDatabase;
 
+
+
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
-        getMenuInflater().inflate(R.menu.reset_menu_menu, menu);
 
-        return super.onCreateOptionsMenu(menu);
+        Database();
+
+        listView = (ListView ) findViewById(R.id.listview);
+
+        adapter = new ContentAdapter(contentArrayList,getApplicationContext());
+        listView.setAdapter(adapter);
+
     }
+//
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//
+//        getMenuInflater().inflate(R.menu.reset_menu_menu, menu);
+//
+//        return super.onCreateOptionsMenu(menu);
+//    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -239,17 +258,5 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 
-        Database();
-
-        listView = (ListView ) findViewById(R.id.listview);
-
-        adapter = new ContentAdapter(contentArrayList,getApplicationContext());
-        listView.setAdapter(adapter);
-
-    }
 }
